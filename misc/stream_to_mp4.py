@@ -8,7 +8,6 @@ parser.add_argument("--output","-o",help="output number",type=str,default="outpu
 args = parser.parse_args()
 
 cap = cv2.VideoCapture(args.device)
-
 if not cap.isOpened():
     print("Error: Could not open webcam.")
     exit()
@@ -22,7 +21,6 @@ out    = cv2.VideoWriter(args.output, fourcc, fps, (frame_width, frame_height))
 
 print("Recording... Press 'q' to stop.")
 
-# 4. Read frames in a loop and write them to the file
 while True:
     ret, frame = cap.read()
     if not ret:
