@@ -4,7 +4,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--device","-d",help="device number",type=int,default=0)
-parser.add_argument("--output","-o",help="output number",type=str,default="output.mp4")
+parser.add_argument("--output","-o",help="output name"  ,type=str,default="output.mp4")
 args = parser.parse_args()
 
 cap = cv2.VideoCapture(args.device)
