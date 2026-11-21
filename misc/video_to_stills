@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+usage() {
+    echo "Usage: video_to_stills -i input_file -s start_number-o output_file pattern "
+    echo "example: ./video_to_stills -i ~/Videos/Cups/output.mp4 -s 75 -o ~/Pictures/Cups/output_%4d.jpg"
+    exit 1
+}
+
+while getopts "s:i:o:h" opt; do
+    case "${opt}" in
+        s) STARTNUM=${OPTARG} ;;
+        i) INPUT="${OPTARG}" ;;
+        o) OUTPUT="${OPTARG}" ;;
+        h) usage ;;
+        \?) echo "Error: Invalid option -${OPTARG}" >&2
+            usage ;;
+        :) echo "Error: Option -${OPTARG} requires an argument." >&2
+           usage ;;
+    esac
+done
+
+ffmpeg -i $INPUT -start_number ${STARTNUM:=1} $OUTPUT
