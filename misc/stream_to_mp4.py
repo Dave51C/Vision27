@@ -1,4 +1,7 @@
 # Grab training video from webcam
+
+# USAGE: python3 stream_to_mp4.py -o ~/Videos/Cups/output.mp4 -d 2
+
 import cv2
 import argparse
 
